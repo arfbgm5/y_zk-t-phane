@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace y_zkütüphane
 {
-    public partial class kullanıcı_giriş : Form
+    public partial class Form2 : Form
     {
-        public kullanıcı_giriş()
+        public Form2()
         {
             InitializeComponent();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
