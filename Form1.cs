@@ -26,5 +26,14 @@ namespace y_zkütüphane
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Form2'yi oluşturup açıyoruz
+            Form2 form2 = new Form2();
+            this.Hide();  // Ana formu gizle
+            form2.ShowDialog();  // Modal olarak form2'yi aç
+            this.Show();  // Form2 kapandıktan sonra ana formu göster
+        }
     }
 }

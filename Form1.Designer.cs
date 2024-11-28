@@ -41,7 +41,7 @@
             // 
             // GİRİŞ
             // 
-            this.GİRİŞ.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GİRİŞ.BackColor = System.Drawing.Color.Black;
             this.GİRİŞ.Controls.Add(this.label3);
             this.GİRİŞ.Controls.Add(this.button2);
             this.GİRİŞ.Controls.Add(this.button1);
@@ -62,6 +62,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe Script", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label3.Location = new System.Drawing.Point(91, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 46);
@@ -88,6 +89,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Giriş Yap";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -101,6 +103,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label2.Location = new System.Drawing.Point(6, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 24);
@@ -112,6 +115,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(6, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 24);
