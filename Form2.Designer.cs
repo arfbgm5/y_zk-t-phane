@@ -44,7 +44,7 @@
             this.Ü.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Ü.Location = new System.Drawing.Point(12, 106);
             this.Ü.Name = "Ü";
-            this.Ü.Size = new System.Drawing.Size(148, 125);
+            this.Ü.Size = new System.Drawing.Size(163, 125);
             this.Ü.TabIndex = 0;
             this.Ü.Text = " ÜZERİMDEKİLER";
             this.Ü.UseVisualStyleBackColor = false;
@@ -55,7 +55,7 @@
             this.list.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.list.Location = new System.Drawing.Point(206, 106);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(136, 125);
+            this.list.Size = new System.Drawing.Size(155, 125);
             this.list.TabIndex = 0;
             this.list.Text = "LİSTEM";
             this.list.UseVisualStyleBackColor = true;
@@ -64,9 +64,9 @@
             // İLET
             // 
             this.İLET.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.İLET.Location = new System.Drawing.Point(385, 106);
+            this.İLET.Location = new System.Drawing.Point(394, 106);
             this.İLET.Name = "İLET";
-            this.İLET.Size = new System.Drawing.Size(136, 125);
+            this.İLET.Size = new System.Drawing.Size(143, 125);
             this.İLET.TabIndex = 0;
             this.İLET.Text = "İLETİLER";
             this.İLET.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             // GEÇ
             // 
             this.GEÇ.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GEÇ.Location = new System.Drawing.Point(12, 283);
+            this.GEÇ.Location = new System.Drawing.Point(21, 283);
             this.GEÇ.Name = "GEÇ";
             this.GEÇ.Size = new System.Drawing.Size(136, 125);
             this.GEÇ.TabIndex = 0;
@@ -86,7 +86,7 @@
             // D_M
             // 
             this.D_M.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.D_M.Location = new System.Drawing.Point(206, 283);
+            this.D_M.Location = new System.Drawing.Point(215, 283);
             this.D_M.Name = "D_M";
             this.D_M.Size = new System.Drawing.Size(136, 125);
             this.D_M.TabIndex = 0;
@@ -97,7 +97,7 @@
             // ARA
             // 
             this.ARA.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ARA.Location = new System.Drawing.Point(385, 283);
+            this.ARA.Location = new System.Drawing.Point(401, 283);
             this.ARA.Name = "ARA";
             this.ARA.Size = new System.Drawing.Size(136, 125);
             this.ARA.TabIndex = 0;

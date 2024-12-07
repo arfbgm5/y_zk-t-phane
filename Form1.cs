@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace y_zkütüphane
 {
@@ -34,6 +36,24 @@ namespace y_zkütüphane
             this.Hide();  // Ana formu gizle
             form2.ShowDialog();  // Modal olarak form2'yi aç
             this.Show();  // Form2 kapandıktan sonra ana formu göster
+
+
+
+
+            //
+
+
+               
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // kayıtol oluştur aç
+            kayıt_ol kayıt_ol=new kayıt_ol();
+            this.Hide();
+            kayıt_ol.ShowDialog();//sadece kayıtol formunda işlem yapmam izin verir
+            this.Show();
+
         }
     }
 }

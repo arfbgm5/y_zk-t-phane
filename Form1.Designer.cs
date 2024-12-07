@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GİRİŞ = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,6 +44,8 @@
             // GİRİŞ
             // 
             this.GİRİŞ.BackColor = System.Drawing.Color.Black;
+            this.GİRİŞ.Controls.Add(this.linkLabel1);
+            this.GİRİŞ.Controls.Add(this.label4);
             this.GİRİŞ.Controls.Add(this.label3);
             this.GİRİŞ.Controls.Add(this.button2);
             this.GİRİŞ.Controls.Add(this.button1);
@@ -57,6 +61,30 @@
             this.GİRİŞ.Size = new System.Drawing.Size(285, 330);
             this.GİRİŞ.TabIndex = 0;
             this.GİRİŞ.TabStop = false;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.linkLabel1.Location = new System.Drawing.Point(170, 276);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(81, 30);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Kayıt ol";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("High Tower Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(6, 280);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 23);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Hesabınız yokmu";
             // 
             // label3
             // 
@@ -98,6 +126,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(120, 27);
             this.textBox2.TabIndex = 3;
+            this.textBox2.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -158,6 +187,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

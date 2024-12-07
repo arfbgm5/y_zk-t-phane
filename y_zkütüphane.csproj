@@ -116,6 +116,12 @@
     <Compile Include="gec.Designer.cs">
       <DependentUpon>gec.cs</DependentUpon>
     </Compile>
+    <Compile Include="kayıt_ol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kayıt_ol.Designer.cs">
+      <DependentUpon>kayıt_ol.cs</DependentUpon>
+    </Compile>
     <Compile Include="list.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gec.resx">
       <DependentUpon>gec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kayıt_ol.resx">
+      <DependentUpon>kayıt_ol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="list.resx">
       <DependentUpon>list.cs</DependentUpon>
