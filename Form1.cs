@@ -46,34 +46,57 @@ namespace y_zkütüphane
                    "Pwd='s0e9V8i7m6_55';");
             try
             {
+                // Veritabanı bağlantısını açıyoruz
                 baglan.Open();
 
-                // SQL sorgusu: Kullanıcı adı ve mail ile şifreyi kontrol et
-                string query = @"SELECT COUNT(*) FROM g_kayıt WHERE k_adı = @Kullaniciadi  AND sifre = @Sifre";
+                // E-posta ve şifreyi kontrol eden SQL sorgusu
+                string kontrl = "SELECT COUNT(*), rol FROM g_kayıt WHERE k_adı = @KullaniciAdi AND sifre = @Sifre GROUP BY rol"; ;
+                MySqlCommand control = new MySqlCommand(kontrl, baglan);
+                control.Parameters.AddWithValue("@KullaniciAdi", ku_adı);
+                control.Parameters.AddWithValue("@Sifre", sifree);
 
-                MySqlCommand cmd = new MySqlCommand(query, baglan);
-                cmd.Parameters.AddWithValue("@Kullaniciadi", ku_adı);
-                cmd.Parameters.AddWithValue("@Sifre", sifree);
+                // Sorguyu çalıştır ve sonucu al
+                MySqlDataReader reader = control.ExecuteReader();
 
-                int userCount = Convert.ToInt32(cmd.ExecuteScalar());
-
-                // Kullanıcı doğrulama
-                if (userCount > 0)
+                if (reader.Read()) // Veritabanından veri okundu
                 {
-                    // Giriş başarılı, ana ekrana geçiş yapılabilir
-                    // Örnek: Ana formu açın
-                    this.Hide(); // Mevcut formu gizleyin
-                    Form2 asayfa = new Form2(); // Ana form örneği
-                    asayfa.Show(); // Ana formu açın
+                    int count = reader.GetInt32(0); // E-posta ve şifreyi kontrol et
+                    string rol = reader.GetString(1); // Admin kontrolü (string olarak)
 
+                    if (count > 0) // E-posta ve şifre doğruysa
+                    {
+                        // Admin kontrolü
+                        if (rol == "admin") // Eğer adminse
+                        {
+                            MessageBox.Show("Giriş başarılı, yönetici sayfasına yönlendiriliyorsunuz.");
+                            this.Hide();  // Ana formu gizle
+                            yönetici yönet = new yönetici(); // Yönetici formu
+                            yönet.Show(); // Yönetici formunu göster
+                        }
+                        else if (rol == "user") // Eğer normal kullanıcıysa
+                        {
+                            MessageBox.Show("Giriş başarılı, kullanıcı sayfasına yönlendiriliyorsunuz.");
+                            // Normal kullanıcı sayfasına yönlendirme yapılabilir.
+                            this.Hide();
+                            Form2 anae=new Form2();
+                            anae.Show();
 
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
+                    }
                 }
-
                 else
                 {
-                    MessageBox.Show("Geçersiz kullanıcı adı, şifre veya mail.");
+                    MessageBox.Show("Veritabanı hatası veya kullanıcı bulunamadı.");
                 }
+
+                // Veritabanı bağlantısını kapat
+                baglan.Close();
             }
+            
             catch (Exception ex)
             {
                 MessageBox.Show("Hata: " + ex.Message);
@@ -92,6 +115,11 @@ namespace y_zkütüphane
             kayıt_ol.ShowDialog();//sadece kayıtol formunda işlem yapmam izin verir
             this.Show();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace y_zkütüphane
             string e_posta = textBox1.Text;
             string k_adı = textBox2.Text;
             string sifre = textBox3.Text;
-            string rol = "user";
+          
 
 
             try
@@ -40,7 +40,6 @@ namespace y_zkütüphane
                     "Database='yzcktp';" +
                     "Uid='root';" +
                     "Pwd='s0e9V8i7m6_55';");
-
                 {
                     baglan.Open();
                     string kontrl = $"SELECT COUNT(*) FROM g_kayıt WHERE e_post = @Eposta;";
@@ -56,16 +55,17 @@ namespace y_zkütüphane
                             // E-posta veritabanında bulundu
                             MessageBox.Show($"Bir hata oluştu:E postanız zaten kayıtlı! başka bir e posta deneyin");
                         }
-                    
 
                     }
-                    baglan.Open() ;
-                    string sql = $"insert into g_kayıt(e_post, k_adı, sifre) values(@Eposta,@KullaniciAdi,@Sifre)";
-                    using(MySqlCommand komut = new MySqlCommand(sql, baglan))
+                   
+                    baglan.Open();
+                    string sql = $"insert into g_kayıt(e_post, k_adı, sifre,rol) values(@Eposta,@KullaniciAdi,@Sifre,@rolu)";
+                    using (MySqlCommand komut = new MySqlCommand(sql, baglan))
                     {
                         komut.Parameters.AddWithValue("@Eposta", e_posta);
                         komut.Parameters.AddWithValue("@KullaniciAdi", k_adı);
                         komut.Parameters.AddWithValue("@Sifre", sifre);
+                        komut.Parameters.AddWithValue("@rolu", "user");
                         komut.ExecuteNonQuery();// Sorguyu çalıştır
 
                         // Kayıt başarılıysa mesaj göster
@@ -73,17 +73,21 @@ namespace y_zkütüphane
 
                     }
                 }
-              
+
             }
-            
+
             catch (Exception ex)
             {
                 // Hata durumunda mesaj göster
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}");
             }
 
-
-
         }
+
+
     }
+            
+       
+       
+    
 }

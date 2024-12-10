@@ -148,6 +148,12 @@
     <Compile Include="s_c.Designer.cs">
       <DependentUpon>s_c.cs</DependentUpon>
     </Compile>
+    <Compile Include="yönetici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="yönetici.Designer.cs">
+      <DependentUpon>yönetici.cs</DependentUpon>
+    </Compile>
     <Compile Include="üzerimdekiler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     <EmbeddedResource Include="s_c.resx">
       <DependentUpon>s_c.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="yönetici.resx">
+      <DependentUpon>yönetici.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="üzerimdekiler.resx">
       <DependentUpon>üzerimdekiler.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +222,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WhatsApp Görsel 2024-10-19 saat 20.47.34_d3199bcb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\araicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitap.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
