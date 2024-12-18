@@ -125,9 +125,9 @@
             this.textBox2.Location = new System.Drawing.Point(141, 159);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(120, 27);
             this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
             // 
             // label2
             // 

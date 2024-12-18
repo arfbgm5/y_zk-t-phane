@@ -99,9 +99,9 @@
             this.textBox3.Location = new System.Drawing.Point(125, 252);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(220, 27);
             this.textBox3.TabIndex = 6;
-            this.textBox3.UseSystemPasswordChar = true;
             // 
             // button1
             // 
