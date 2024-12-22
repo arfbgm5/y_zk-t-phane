@@ -18,6 +18,7 @@ namespace y_zkütüphane
             InitializeComponent();
         }
 
+
         private void Ü_Click(object sender, EventArgs e)
         {
             // üzerimdekileri oluşturup açıyoruz
@@ -26,12 +27,17 @@ namespace y_zkütüphane
         }
 
         private void GEÇ_Click(object sender, EventArgs e)
-        {// gec nesne  oluşturup açtık 
-            gec gec = new gec();
-            this.Hide();// form2yi  formu gizle 
-            gec.ShowDialog();// modal olarak gec aç
-            this.Show();// form2 yi gec kapanınca aç
+        { // Eğer geçmiş formu bellekte yoksa, yeni bir nesne oluşturulur
+            if (search.gecForm == null || search.gecForm.IsDisposed)
+            {
+                search.gecForm = new gec(); // Formu oluştur (eğer kapatıldıysa)
+            }
+
+            // Geçmiş Formunu göster
+            search.gecForm.Show();
+            search.gecForm.BringToFront(); // Formu ön plana getir
         }
+    
 
         private void list_Click(object sender, EventArgs e)
         {

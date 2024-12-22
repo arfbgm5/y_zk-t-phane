@@ -14,11 +14,14 @@ namespace y_zkütüphane
 {
     public partial class search : Form
     {
+        // Geçmiş formunu saklamak için global değişken
+        public static gec gecForm; // Geçmiş formunu global olarak tanımlıyoruz
         public search()
         {
             InitializeComponent();
+           
         }
-
+       
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -34,7 +37,7 @@ namespace y_zkütüphane
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//ara butonuna basıldığında datagriveve metinde yazılı olan kitaplar gelir
         {
 
             string k_ara = textBox1.Text;
@@ -90,27 +93,40 @@ namespace y_zkütüphane
 
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)//ara formunda bululnan dtagriwide seçilen 
         {
-            try
+            // Geçerli satırda bir hücre seçildiğinde
+            if (e.RowIndex >= 0)
             {
-                // Geçerli satırda bir hücre seçildiğinde
-                if (e.RowIndex >= 0)
+                // Seçilen satırın verilerini al
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                // "metin" sütunundaki değeri TextBox'a aktar
+                textBox2.Text = row.Cells["metin"].Value.ToString();
+
+                // TabPage 2'yi aktif hale getir
+                tabControl1.SelectedTab = tabPage2;
+            }
+
+
+
+
+            //datagrivedeki veriyi gec formundaki listwiwe ekleme
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                string kitapAdi = row.Cells[1].Value.ToString();
+                string yazar = row.Cells[3].Value.ToString();
+
+                if (gecForm == null || gecForm.IsDisposed)
                 {
-                    // Seçilen satırın verilerini al
-                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                    // "metin" sütunundaki değeri TextBox'a aktar
-                    textBox2.Text = row.Cells["metin"].Value.ToString();
-
-                    // TabPage 2'yi aktif hale getir
-                    tabControl1.SelectedTab = tabPage2;
+                    gecForm = new gec();
                 }
+
+                gecForm.AddToListView(kitapAdi, yazar);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+
         }
     }
 }
