@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,7 @@ using System.Windows.Forms;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+
 
 namespace y_zkütüphane
 {
@@ -34,10 +37,10 @@ namespace y_zkütüphane
                   "Pwd='s0e9V8i7m6_55';");
             baglan.Open();
             string sql = "select * from g_kayıt";
-            MySqlDataAdapter veri =new MySqlDataAdapter(sql,baglan);
-            DataTable tablo= new DataTable();
+            MySqlDataAdapter veri = new MySqlDataAdapter(sql, baglan);
+            DataTable tablo = new DataTable();
             veri.Fill(tablo);
-            dataGridView1. DataSource = tablo;
+            dataGridView1.DataSource = tablo;
             baglan.Close();
         }
 
@@ -48,11 +51,11 @@ namespace y_zkütüphane
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int num= Convert.ToInt32(e_id.Text);
+            int num = Convert.ToInt32(e_id.Text);
             String e_kitad = e_kadı.Text;
             string e_kon = e_konu.Text;
             string eyazar = e_yazar.Text;
-            string eyay=e_yayın.Text;
+            string eyay = e_yayın.Text;
             string edil = e_dil.Text;
 
 
@@ -77,7 +80,7 @@ namespace y_zkütüphane
                 komut.Parameters.AddWithValue("@Yazari", eyazar);
                 komut.Parameters.AddWithValue("@YayinEvi", eyay);
                 komut.Parameters.AddWithValue("@Dil", edil);
-                komut.Parameters.AddWithValue("@Metin",textBox16.Text); // Uzun metin için
+                komut.Parameters.AddWithValue("@Metin", textBox16.Text); // Uzun metin için
 
                 // Sorguyu çalıştırıyoruz
                 komut.ExecuteNonQuery();
@@ -86,7 +89,7 @@ namespace y_zkütüphane
 
 
 
-               
+
 
             }
             catch (Exception ex)
@@ -105,7 +108,7 @@ namespace y_zkütüphane
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-           
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -222,7 +225,7 @@ namespace y_zkütüphane
                 dataGridView3g.DataSource = table;
             }
         }
-
+        //kitap  silme
         private void button3_Click(object sender, EventArgs e)
         {
             int snum = Convert.ToInt32(textBox6.Text);
@@ -262,6 +265,88 @@ namespace y_zkütüphane
                 baglan.Close();
             }
 
+        }
+
+        
+          
+
+
+
+        
+
+        // ListBox'a veri ekleme metodu
+        public void ListBoxaVeriEkle(string veri)
+        {
+            // listBox1, Form'daki ListBox'ın ismi
+            listBox1.Items.Add(veri); // Veriyi ListBox'a ekliyoruz
+        }
+
+        // SQL Server'dan verileri okuma metodu (gerekiyorsa)
+        public List<string> VerileriOku()
+        {
+            List<string> veriler = new List<string>();
+
+
+
+            MySqlConnection bagla = new MySqlConnection("Server=localhost;" +
+               "Database=yzcktp;" +
+               "Uid=root;" +
+               "Pwd=s0e9V8i7m6_55;");
+
+            string query = "SELECT ileti FROM iletiler";
+
+            MySqlCommand cmd = new MySqlCommand(query, bagla);
+
+                try
+                {
+                    bagla.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        veriler.Add(reader["ileti"].ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+            
+
+            return veriler;
+        }
+
+        // Form yüklendiğinde verileri ListBox'a yükle
+        private void yönetici_Load(object sender, EventArgs e)
+        {
+            List<string> verii= VerileriOku();
+
+            foreach (var ileti in verii)
+            {
+                listBox1.Items.Add(ileti); // Verileri ListBox'a ekliyoruz
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)// yönetici sayfasındaki listboxa gelen verileri seçildiğinde silme
+        {
+            MySqlConnection baglan = new MySqlConnection(
+                 "Server='localhost';" +
+               "Database='yzcktp';" +
+               "Uid='root';" +
+               "Pwd='s0e9V8i7m6_55';");
+
+            try
+            {
+                baglan.Open();/*
+                string mysql= "DELETE FROM iletiler WHERE iid = @Id";
+                MySqlCommand cmd = new MySqlCommand(mysql,baglan);
+                cmd.Parameters.AddWithValue("@Id",iid);*/
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }
