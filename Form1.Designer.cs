@@ -56,7 +56,7 @@
             this.GİRİŞ.Cursor = System.Windows.Forms.Cursors.No;
             this.GİRİŞ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GİRİŞ.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GİRİŞ.Location = new System.Drawing.Point(272, 95);
+            this.GİRİŞ.Location = new System.Drawing.Point(179, 108);
             this.GİRİŞ.Name = "GİRİŞ";
             this.GİRİŞ.Size = new System.Drawing.Size(285, 330);
             this.GİRİŞ.TabIndex = 0;
@@ -165,8 +165,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::y_zkütüphane.Properties.Resources.WhatsApp_Görsel_2024_09_27_saat_14_07_50_0361857c;
-            this.ClientSize = new System.Drawing.Size(796, 510);
+            this.BackgroundImage = global::y_zkütüphane.Properties.Resources.karısık_mavı;
+            this.ClientSize = new System.Drawing.Size(664, 578);
             this.Controls.Add(this.GİRİŞ);
             this.Font = new System.Drawing.Font("Georgia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Name = "kullanıcı_giriş";

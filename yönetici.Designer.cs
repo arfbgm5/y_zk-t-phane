@@ -73,10 +73,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBoxkullanıcı = new System.Windows.Forms.ComboBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.y_mesajtxt = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3g)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -507,16 +508,18 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button4.Location = new System.Drawing.Point(794, 280);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 36);
             this.button4.TabIndex = 1;
             this.button4.Text = "LİSTELE";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -540,9 +543,11 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.ControlText;
+            this.tabPage4.Controls.Add(this.comboBoxkullanıcı);
             this.tabPage4.Controls.Add(this.button8);
             this.tabPage4.Controls.Add(this.button7);
-            this.tabPage4.Controls.Add(this.textBox3);
+            this.tabPage4.Controls.Add(this.y_mesajtxt);
             this.tabPage4.Controls.Add(this.listBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
@@ -550,43 +555,54 @@
             this.tabPage4.Size = new System.Drawing.Size(929, 327);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "İletişim Merkezi";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxkullanıcı
+            // 
+            this.comboBoxkullanıcı.FormattingEnabled = true;
+            this.comboBoxkullanıcı.Location = new System.Drawing.Point(645, 290);
+            this.comboBoxkullanıcı.Name = "comboBoxkullanıcı";
+            this.comboBoxkullanıcı.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxkullanıcı.TabIndex = 4;
+            this.comboBoxkullanıcı.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button8.Location = new System.Drawing.Point(499, 281);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(125, 40);
+            this.button8.TabIndex = 3;
+            this.button8.Text = "Sil";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(757, 292);
+            this.button7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button7.Location = new System.Drawing.Point(788, 281);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(166, 39);
+            this.button7.Size = new System.Drawing.Size(135, 40);
             this.button7.TabIndex = 2;
             this.button7.Text = "Gönder";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // textBox3
+            // y_mesajtxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(520, 0);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(406, 293);
-            this.textBox3.TabIndex = 1;
+            this.y_mesajtxt.Location = new System.Drawing.Point(499, 3);
+            this.y_mesajtxt.Multiline = true;
+            this.y_mesajtxt.Name = "y_mesajtxt";
+            this.y_mesajtxt.Size = new System.Drawing.Size(424, 272);
+            this.y_mesajtxt.TabIndex = 1;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(6, 0);
+            this.listBox1.Location = new System.Drawing.Point(3, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(508, 324);
+            this.listBox1.Size = new System.Drawing.Size(490, 324);
             this.listBox1.TabIndex = 0;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(520, 293);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(157, 36);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Sil";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // yönetici
             // 
@@ -663,8 +679,9 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox y_mesajtxt;
         public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ComboBox comboBoxkullanıcı;
     }
 }

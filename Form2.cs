@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Configuration;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -46,14 +48,62 @@ namespace y_zkütüphane
             list.ShowDialog();
             this.Show();
 
-        }
+        }//ileti mesajını tutumak için
+        private string ku_adı; // Kullanıcı adı için değişken
 
+        public Form2(string username)
+        {
+            InitializeComponent();
+            ku_adı = username; // Kullanıcı adını al
+        }
         private void İLET_Click(object sender, EventArgs e)
         {
-            message message = new message();
-            this.Hide();
-            message.ShowDialog();
-            this.Show();
+            string userEmail = GetUserEmailByUsername(ku_adı);
+
+            if (!string.IsNullOrEmpty(userEmail))
+            {
+                // message formunu aç ve kullanıcı e-posta adresini gönder
+                message mesajForm = new message(userEmail);
+                mesajForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("E-posta bulunamadı. Kullanıcı adı hatalı olabilir.");
+            }
+        }
+
+        private string GetUserEmailByUsername(string ku_adı)
+        {
+            string userEmail = null;
+            string connectionString = "Server='localhost';" +
+                                      "Database='yzcktp';" +
+                                      "Uid='root';" +
+                                      "Pwd='s0e9V8i7m6_55';";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT e_post FROM g_kayıt WHERE k_adı = @Username";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", ku_adı);
+                        userEmail = command.ExecuteScalar()?.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}");
+            }
+
+            return userEmail;
+
+
+
+          
 
         }
 

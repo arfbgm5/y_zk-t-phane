@@ -33,32 +33,28 @@ namespace y_zkütüphane
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             string ku_adı = textBox1.Text;
             string sifree = textBox2.Text;
-
-
 
             MySqlConnection baglan = new MySqlConnection(
                    "Server='localhost';" +
                    "Database='yzcktp';" +
                    "Uid='root';" +
                    "Pwd='s0e9V8i7m6_55';");
+
             try
             {
-                // Veritabanı bağlantısını açıyoruz
+
                 baglan.Open();
 
-                // E-posta ve şifreyi kontrol eden SQL sorgusu
-                string kontrl = "SELECT COUNT(*), rol FROM g_kayıt WHERE k_adı = @KullaniciAdi AND sifre = @Sifre GROUP BY rol"; ;
-                MySqlCommand control = new MySqlCommand(kontrl, baglan);
-                control.Parameters.AddWithValue("@KullaniciAdi", ku_adı);
-                control.Parameters.AddWithValue("@Sifre", sifree);
+                string query = "SELECT COUNT(*), rol FROM g_kayıt WHERE k_adı = @KullaniciAdi AND sifre = @Sifre GROUP BY rol";
+                MySqlCommand cmd = new MySqlCommand(query, baglan);
+                cmd.Parameters.AddWithValue("@KullaniciAdi", ku_adı);
+                cmd.Parameters.AddWithValue("@Sifre", sifree);
 
-                // Sorguyu çalıştır ve sonucu al
-                MySqlDataReader reader = control.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read()) // Veritabanından veri okundu
+                if (reader.Read())
                 {
                     int count = reader.GetInt32(0); // E-posta ve şifreyi kontrol et
                     string rol = reader.GetString(1); // Admin kontrolü (string olarak)
@@ -78,35 +74,26 @@ namespace y_zkütüphane
                             MessageBox.Show("Giriş başarılı, kullanıcı sayfasına yönlendiriliyorsunuz.");
                             // Normal kullanıcı sayfasına yönlendirme yapılabilir.
                             this.Hide();
-                            Form2 anae=new Form2();
-                            anae.Show();
-
+                            // Ana formu aç ve kullanıcı adını gönder
+                            Form2 anaForm = new Form2(ku_adı);
+                            anaForm.Show();
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
-                    }
+                    reader.Close();
+                    baglan.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Veritabanı hatası veya kullanıcı bulunamadı.");
-                }
-
-                // Veritabanı bağlantısını kapat
-                baglan.Close();
+              
             }
-            
             catch (Exception ex)
             {
                 MessageBox.Show("Hata: " + ex.Message);
             }
 
-
-
-
+            
         }
-
+       
+       
+           
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // kayıtol oluştur aç
@@ -119,7 +106,7 @@ namespace y_zkütüphane
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

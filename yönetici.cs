@@ -28,7 +28,7 @@ namespace y_zkütüphane
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)// yöneticimde kullanıcılarımı listeleyen butpn
         {
             MySqlConnection baglan = new MySqlConnection(
                   "Server='localhost';" +
@@ -49,7 +49,7 @@ namespace y_zkütüphane
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// yönetici formunda kitap ekleme butonu
         {
             int num = Convert.ToInt32(e_id.Text);
             String e_kitad = e_kadı.Text;
@@ -111,7 +111,7 @@ namespace y_zkütüphane
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)// yönetici formunda kitap eklediğini gömerk için listele button
         {// listele butonuna basıldığında veri tabanında bulunan kitapla ilgili bilgleri data grive çeker.
             MySqlConnection baglan = new MySqlConnection(
                 "Server='localhost';" +
@@ -198,7 +198,7 @@ namespace y_zkütüphane
         {
         }
 
-        private void button6_Click(object sender, EventArgs e)//günclleme listeleme
+        private void button6_Click(object sender, EventArgs e)//günclleme ve silme isleminden sonra listeleme
         {
             // listele butonuna basıldığında veri tabanında bulunan kitapla ilgili bilgleri data grive çeker.
             MySqlConnection baglan = new MySqlConnection(
@@ -226,7 +226,7 @@ namespace y_zkütüphane
             }
         }
         //kitap  silme
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)//kitap silme butonu
         {
             int snum = Convert.ToInt32(textBox6.Text);
 
@@ -274,7 +274,7 @@ namespace y_zkütüphane
 
         
 
-        // ListBox'a veri ekleme metodu
+        // yönetici formundaki ListBox'a veri ekleme metodu
         public void ListBoxaVeriEkle(string veri)
         {
             // listBox1, Form'daki ListBox'ın ismi
@@ -302,10 +302,12 @@ namespace y_zkütüphane
                     bagla.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        veriler.Add(reader["ileti"].ToString());
-                    }
+                while (reader.Read())
+                {
+                    veriler.Add(reader["ileti"].ToString());
+                   
+
+                }
                 }
                 catch (Exception ex)
                 {
@@ -323,30 +325,135 @@ namespace y_zkütüphane
 
             foreach (var ileti in verii)
             {
-                listBox1.Items.Add(ileti); // Verileri ListBox'a ekliyoruz
+                listBox1.Items.Add(ileti);// Verileri ListBox'a ekliyoruz
+                
             }
+
+            LoadUserEmailsToComboBox();// yönetici formundaki comboboxa kullanıcı eposta ekleme
+
         }
 
         private void button8_Click(object sender, EventArgs e)// yönetici sayfasındaki listboxa gelen verileri seçildiğinde silme
         {
-            MySqlConnection baglan = new MySqlConnection(
-                 "Server='localhost';" +
-               "Database='yzcktp';" +
-               "Uid='root';" +
-               "Pwd='s0e9V8i7m6_55';");
 
+
+
+           
             try
             {
-                baglan.Open();/*
-                string mysql= "DELETE FROM iletiler WHERE iid = @Id";
-                MySqlCommand cmd = new MySqlCommand(mysql,baglan);
-                cmd.Parameters.AddWithValue("@Id",iid);*/
+                // Seçili öğeyi al
+                string seciliMetin = listBox1.SelectedItem.ToString();
 
+                if (!string.IsNullOrEmpty(seciliMetin)) // Geçerli bir seçim yapılmış mı kontrol et
+                {
+                    // Veritabanı bağlantısını aç
+                     MySqlConnection baglan = new MySqlConnection(
+                               "Server='localhost';" +
+                                  "Database='yzcktp';" +
+                                "Uid='root';" +
+                                  "Pwd='s0e9V8i7m6_55';") ;
+                    {
+                        baglan.Open();
+
+                        // DELETE sorgusunu hazırla
+                        string sql = "DELETE FROM iletiler WHERE ileti = @Metin";
+                        MySqlCommand komut = new MySqlCommand(sql, baglan);
+                        komut.Parameters.AddWithValue("@Metin", seciliMetin);
+
+                        // Sorguyu çalıştır
+                        int sonuc = komut.ExecuteNonQuery();
+
+                        // Eğer bir kayıt silindiyse (0 ise hiçbir şey silinmemiş demektir)
+                        if (sonuc > 0)
+                        {
+                            // ListBox'tan da sil
+                            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+
+                            MessageBox.Show("Seçilen metin başarıyla silindi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seçilen metin veritabanında bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen silmek için bir metin seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+
+        private void LoadUserEmailsToComboBox()//kullanıcı combobox su
+        {
+            //comboBoxkullanıcı.Items.Clear(); // ComboBox içeriğini temizle
+
+            string connectionString = "Server='localhost';" +
+                                  "Database='yzcktp';" +
+                                "Uid='root';" +
+                                  "Pwd='s0e9V8i7m6_55';";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT e_post FROM g_kayıt"; // Kullanıcıların e-postalarını çek
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        comboBoxkullanıcı.Items.Add(reader["e_post"].ToString()); // E-postaları ComboBox'a ekle
+                    }
+                }
+            }
+        }
+
+
+
+        private void button7_Click(object sender, EventArgs e)//yönetici sayfasından kullanıcılara epostalarını seçerek ayrı ayrı mesaj gönder
+        {
+            string selectedEmail = comboBoxkullanıcı.SelectedItem?.ToString(); // Seçilen e-posta adresi
+            string messageText = y_mesajtxt.Text; // Mesaj içeriği
+
+            if (!string.IsNullOrEmpty(selectedEmail) && !string.IsNullOrEmpty(messageText))
+            {
+                string connectionString = "Server='localhost';" +
+                                  "Database='yzcktp';" +
+                                "Uid='root';" +
+                                  "Pwd='s0e9V8i7m6_55';";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "INSERT INTO mesaj (kmail, mesaj) VALUES (@UserEmail, @MessageText)";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserEmail", selectedEmail);
+                        command.Parameters.AddWithValue("@MessageText", messageText);
+                        command.ExecuteNonQuery(); // Mesajı veritabanına kaydet
+                    }
+                }
+
+                MessageBox.Show("Mesaj başarıyla gönderildi!");
+                y_mesajtxt.Clear(); // Mesaj kutusunu temizle
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir kullanıcı seçin ve mesaj yazın.");
+            }
+        }
+
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

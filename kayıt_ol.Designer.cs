@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe Script", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(141, 95);
+            this.label1.Location = new System.Drawing.Point(168, 185);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 28);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(47, 159);
+            this.label2.Location = new System.Drawing.Point(94, 242);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(13, 214);
+            this.label3.Location = new System.Drawing.Point(61, 293);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 20);
             this.label3.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(69, 259);
+            this.label4.Location = new System.Drawing.Point(117, 345);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 149);
+            this.textBox1.Location = new System.Drawing.Point(173, 232);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(220, 30);
@@ -88,7 +88,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 203);
+            this.textBox2.Location = new System.Drawing.Point(174, 282);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(219, 31);
@@ -96,7 +96,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 252);
+            this.textBox3.Location = new System.Drawing.Point(173, 338);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
@@ -105,20 +105,22 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(170, 323);
+            this.button1.Location = new System.Drawing.Point(215, 386);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 31);
             this.button1.TabIndex = 7;
             this.button1.Text = "KAYIT OL";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // kayıt_ol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 515);
+            this.BackgroundImage = global::y_zkütüphane.Properties.Resources.kayıtol;
+            this.ClientSize = new System.Drawing.Size(513, 530);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);

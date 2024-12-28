@@ -73,6 +73,36 @@ namespace y_zkütüphane.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap cansu {
+            get {
+                object obj = ResourceManager.GetObject("cansu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap karısık_mavı {
+            get {
+                object obj = ResourceManager.GetObject("karısık mavı", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap kayıtol {
+            get {
+                object obj = ResourceManager.GetObject("kayıtol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap kitap {
             get {
                 object obj = ResourceManager.GetObject("kitap", resourceCulture);
@@ -93,6 +123,16 @@ namespace y_zkütüphane.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap orta_siyah {
+            get {
+                object obj = ResourceManager.GetObject("orta siyah", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap WhatsApp_Görsel_2024_09_27_saat_14_07_50_0361857c {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Görsel 2024-09-27 saat 14.07.50_0361857c", resourceCulture);
@@ -106,6 +146,16 @@ namespace y_zkütüphane.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Görsel_2024_10_19_saat_20_47_34_d3199bcb {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Görsel 2024-10-19 saat 20.47.34_d3199bcb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Görsel_2024_12_24_saat_23_39_01_4d1c0e61 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Görsel 2024-12-24 saat 23.39.01_4d1c0e61", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

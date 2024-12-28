@@ -229,5 +229,20 @@
   <ItemGroup>
     <None Include="Resources\kitap.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orta siyah.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\karısık mavı.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Görsel 2024-12-24 saat 23.39.01_4d1c0e61.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cansu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kayıtol.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

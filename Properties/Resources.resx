@@ -118,19 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="WhatsApp Görsel 2024-09-27 saat 14.07.50_0361857c" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WhatsApp Görsel 2024-09-27 saat 14.07.50_0361857c.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="orta siyah" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orta siyah.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="araicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\araicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cansu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cansu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kopyAPR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kopyAPR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kitap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kitap.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WhatsApp Görsel 2024-10-19 saat 20.47.34_d3199bcb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp Görsel 2024-10-19 saat 20.47.34_d3199bcb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kitap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kitap.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kopyAPR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kopyAPR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="karısık mavı" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\karısık mavı.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="araicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\araicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhatsApp Görsel 2024-09-27 saat 14.07.50_0361857c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhatsApp Görsel 2024-09-27 saat 14.07.50_0361857c.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhatsApp Görsel 2024-12-24 saat 23.39.01_4d1c0e61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhatsApp Görsel 2024-12-24 saat 23.39.01_4d1c0e61.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kayıtol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kayıtol.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

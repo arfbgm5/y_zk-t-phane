@@ -57,7 +57,7 @@ namespace y_zkütüphane
                     {
                         baglan.Open();
                         cmd.ExecuteNonQuery(); // SQL komutunu çalıştır
-                        MessageBox.Show("Veri başarıyla kaydedildi!");
+                        MessageBox.Show("Mesajınız Başarıyla Gönderilmiştir !");
                     }
                     catch (Exception ex)
                     {
