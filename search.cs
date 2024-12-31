@@ -16,10 +16,11 @@ namespace y_zkütüphane
     {
         // Geçmiş formunu saklamak için global değişken
         public static gec gecForm; // Geçmiş formunu global olarak tanımlıyoruz
-        public search()
+        private string ku_ad;
+        public search(string ku_adı)
         {
             InitializeComponent();
-           
+           ku_ad = ku_adı;//kullanıcı adı alınıyor
         }
        
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,19 +112,25 @@ namespace y_zkütüphane
 
 
 
-            //datagrivedeki veriyi gec formundaki listwiwe ekleme
+            //datagrivedeki veriyi gec formundaki kullancıadı ve ve kitap adini gecmis tablosuna ekledik
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                string kitapAdi = row.Cells[1].Value.ToString();
-                string yazar = row.Cells[3].Value.ToString();
+                string kitapBilgisi = dataGridView1.Rows[e.RowIndex].Cells["kitap_ad"].Value.ToString();
 
-                if (gecForm == null || gecForm.IsDisposed)
+                string connectionString = "Server=localhost;Database=yzcktp;Uid=root;Pwd=s0e9V8i7m6_55;";
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    gecForm = new gec();
+                    connection.Open();
+                    string query = "INSERT INTO gecmis (gku_adi, gkitap_adi) VALUES (@kullaniciAdi, @kitapAdi)";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@kullaniciAdi", ku_ad);
+                        command.Parameters.AddWithValue("@kitapAdi", kitapBilgisi);
+                        command.ExecuteNonQuery();
+                    }
                 }
 
-                gecForm.AddToListView(kitapAdi, yazar);
+              
             }
 
 

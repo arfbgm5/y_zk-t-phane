@@ -15,9 +15,11 @@ namespace y_zkütüphane
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private string ku_ad;
+        public Form2(string ku_adı)
         {
             InitializeComponent();
+            ku_ad = ku_adı;
         }
 
 
@@ -27,17 +29,24 @@ namespace y_zkütüphane
             üzerimdekiler üzerimdekiler  = new üzerimdekiler();
             üzerimdekiler.Show();  // üzerimdekileri göster
         }
+       
+  
+
 
         private void GEÇ_Click(object sender, EventArgs e)
-        { // Eğer geçmiş formu bellekte yoksa, yeni bir nesne oluşturulur
+        {
+            gec gecFormu = new gec(ku_ad); // Kullanıcı adını geçmiş formuna gönder
+            gecFormu.Show();
+
+            /* // Eğer geçmiş formu bellekte yoksa, yeni bir nesne oluşturulur
             if (search.gecForm == null || search.gecForm.IsDisposed)
             {
-                search.gecForm = new gec(); // Formu oluştur (eğer kapatıldıysa)
+                search.gecForm = new gec(ku_adı); // Formu oluştur (eğer kapatıldıysa)
             }
 
             // Geçmiş Formunu göster
             search.gecForm.Show();
-            search.gecForm.BringToFront(); // Formu ön plana getir
+            search.gecForm.BringToFront(); // Formu ön plana getir*/
         }
     
 
@@ -49,16 +58,12 @@ namespace y_zkütüphane
             this.Show();
 
         }//ileti mesajını tutumak için
-        private string ku_adı; // Kullanıcı adı için değişken
+        public string ku_adı; // Kullanıcı adı için değişken
 
-        public Form2(string username)
-        {
-            InitializeComponent();
-            ku_adı = username; // Kullanıcı adını al
-        }
+      
         private void İLET_Click(object sender, EventArgs e)
         {
-            string userEmail = GetUserEmailByUsername(ku_adı);
+            string userEmail = GetUserEmailByUsername(ku_ad);
 
             if (!string.IsNullOrEmpty(userEmail))
             {
@@ -118,7 +123,7 @@ namespace y_zkütüphane
 
         private void ARA_Click(object sender, EventArgs e)
         {
-            search search = new search();
+            search search = new search(ku_ad);
             this.Hide();
             search.ShowDialog();
             this.Show();
